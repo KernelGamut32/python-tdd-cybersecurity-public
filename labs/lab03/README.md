@@ -1,29 +1,27 @@
 # Lab 03: Practice SOLID Principles
 
-Build a product/ordering system API in Python (using Flask, FastAPI, or Django). Include the following models within that API:
+Build a base employee class that includes the following properties and methods:
 
-## Product Structure
+* Properties
+    - Employee number
+    - First name
+    - Last name
+    - Department
+* Methods
+    - Print badge (outputs employee info captured above for print on a badge)
 
-- Internal ID (auto-increment)
-- Product number (e.g., "ABC-123")
-- Product description
-- Unit cost
+Build an hourly employee class which inherits from your employee class and that includes the following properties and methods:
 
-## Order Structure
+* Properties
+    - Hourly rate
+* Methods
+    - Process pay (hourly rate * 40 hours)
 
-- Internal ID (auto-increment)
-- Product ID (foreign key)
-- Order number (e.g., "12345")
-- Quantity
-- Total
+Build a salaried employee class which inherits from your employee class and that includes the following properties and methods:
 
-## Operations to Include
+* Properties
+    - Annual salary
+* Methods
+    - Process pay (annual salary divided by 52)
 
-* List all products in the catalog
-* List a specific product in the catalog by product number
-* Accept a new order for a single product
-* Retrieve a specific order's details by order number
-
-Use a database of your choice (SQLite, PostgreSQL, etc.) for persisting your catalog and order information. Feel free to preload the catalog with a set of products. If you are not comfortable working with a database, you can use in-memory data structures instead (but know that when the process running your API stops, you will lose your data).
-
-The key focus of this lab is to practice the SOLID principles - i.e., build the components of your API in a loosely-coupled manner, layer components in modules correctly, etc. such that the components of your API are clean and well architected. For example, whatever storage/persistence strategy you use, the rest of the API should not need to know or care. Ensure that functionality is sufficiently isolated to modules and that each module is insulated from the others (to prevent brittle coupling).
+Ensure you have tests in place to properly validate each. Feel free to work in a TDD manner (if desired).
