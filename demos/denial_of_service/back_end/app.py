@@ -7,6 +7,7 @@ from typing import List
 app = FastAPI()
 account_repository = AccountRepository()
 
+
 @app.post('/api/accounts/open')
 async def open_account(account: Account):
     if account.current_balance < 25.0:
@@ -14,9 +15,11 @@ async def open_account(account: Account):
     account_repository.insert(account)
     return account
 
+
 @app.get('/api/accounts', response_model=List[Account])
 async def retrieve_accounts():
     return account_repository.get_all()
+
 
 @app.get('/api/accounts/{id}')
 async def retrieve_account(id):
@@ -25,6 +28,7 @@ async def retrieve_account(id):
         return account
     else:
         return {}
+
 
 @app.put('/api/accounts/{id}/deposit/{amount}')
 async def deposit(id, amount):
@@ -35,6 +39,7 @@ async def deposit(id, amount):
     account.current_balance += mod
     account_repository.update(id, account)
     return { 'message': 'Deposit completed successfully' }
+
 
 @app.put('/api/accounts/{id}/withdraw/{amount}')
 async def withdraw(id, amount):
@@ -47,6 +52,7 @@ async def withdraw(id, amount):
     account.current_balance -= mod
     account_repository.update(id, account)
     return { 'message': 'Withdrawal completed successfully' }
+
 
 @app.delete('/api/accounts/{id}/close')
 async def close_account(id):

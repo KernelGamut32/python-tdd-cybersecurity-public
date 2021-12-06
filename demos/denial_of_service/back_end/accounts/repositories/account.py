@@ -3,6 +3,7 @@ from accounts.models.account import Account
 from accounts.repositories.customer import CustomerRepository
 from accounts.database.database import Database
 
+
 class AccountRepository():
     db_name = 'accounts.db'
     customer_repository = CustomerRepository()

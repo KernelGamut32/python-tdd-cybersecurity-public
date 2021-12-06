@@ -2,6 +2,7 @@ import sqlite3
 from accounts.models.address import Address
 from accounts.database.database import Database
 
+
 class AddressRepository():
     db_name = 'accounts.db'
     _ = Database()

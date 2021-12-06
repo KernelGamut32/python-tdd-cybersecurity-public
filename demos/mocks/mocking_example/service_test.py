@@ -14,3 +14,4 @@ class TestService(unittest.TestCase):
 
     def test_service_with_small_quantity(self):
         self.assertEqual(0.05, self.service.get_discount(200))
+
